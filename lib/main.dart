@@ -16,7 +16,7 @@ class AppWidget extends StatelessWidget {
                     .fromSwatch(primarySwatch: Colors.orange)
                     .copyWith(secondary: Colors.orangeAccent)
             ),
-            home: const RangeSelectorPage(),
+            home: RangeSelectorPage(),
             
         );
     }
