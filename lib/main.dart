@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:provider/provider.dart';
+
 import 'range_selector_page.dart';
+import 'package:randomizer_app/randomizer_change_notifier.dart';
 
 void main() => runApp(const AppWidget());
 
@@ -9,15 +12,18 @@ class AppWidget extends StatelessWidget {
     
     @override
     Widget build(BuildContext context) {
-        return MaterialApp(
-            title: 'Randomizer',
-            theme: ThemeData(
-                colorScheme: ColorScheme
-                    .fromSwatch(primarySwatch: Colors.orange)
-                    .copyWith(secondary: Colors.orangeAccent)
+        return ChangeNotifierProvider(
+            create: (context) => RandomizerChangeNotifier(),
+            child: MaterialApp(
+                title: 'Randomizer',
+                theme: ThemeData(
+                    colorScheme: ColorScheme
+                        .fromSwatch(primarySwatch: Colors.orange)
+                        .copyWith(secondary: Colors.orangeAccent)
+                ),
+                home: RangeSelectorPage(),
+                
             ),
-            home: RangeSelectorPage(),
-            
         );
     }
 }
